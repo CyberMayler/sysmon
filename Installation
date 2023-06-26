@@ -1,0 +1,3 @@
+Installation: https://github.com/Sysinternals/SysmonForLinux/blob/main/INSTALL.md
+
+After change the configuration -> sysmon -c config.xml
