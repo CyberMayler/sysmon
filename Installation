@@ -1,3 +1,4 @@
 Installation: https://github.com/Sysinternals/SysmonForLinux/blob/main/INSTALL.md
 
-After change the configuration -> sysmon -c config.xml
+first configuration ->  sysmon -accepteula -i sysmon_config.xml
+After every change the command is -> sysmon -c config.xml
