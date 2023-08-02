@@ -37,11 +37,10 @@
                                 <Image condition="image">/usr/bin/who</Image>
                                 <Image condition="image">/usr/bin/df</Image>
                                 <Image condition="image">/usr/bin/sleep</Image>
-                                <Image condition="image">&lt;unknown process&gt;</Image>
+                                <Image condition="not_equal">&lt;unknown process&gt;</Image>
                                 <Image condition="image">/usr/bin/runc</Image>
                                 <Image condition="image">/usr/bin/sed</Image>
                                 <Image condition="image">/usr/bin/sort</Image>
-                                <Image condition="image">/usr/bin/last</Image>
                                 <Image condition="image">/usr/libexec/docker/docker-init</Image>
                                 
                         </ProcessTerminate >
