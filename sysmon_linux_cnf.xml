@@ -9,46 +9,174 @@
                 <RuleGroup name="" groupRelation="or">
                         <ProcessCreate onmatch="exclude">
                                 <CommandLine condition="is">sleep 1</CommandLine>
-                                <CommandLine condition="is">df -l</CommandLine>
-                                <Image condition="image">/usr/bin/head</Image>
+				<CommandLine condition="is">sh -c who | wc -l</CommandLine>
+				<CommandLine condition="is">df -l</CommandLine>
+				<CommandLine condition="contains">xfs_repair</CommandLine>
+				<CommandLine condition="contains">[^0-9]</CommandLine>
+				<CommandLine condition="contains">^COLOR</CommandLine>
+				<CommandLine condition="contains">selinux</CommandLine>
+				<CurrentDirectory condition="is">/var/ossec/</CurrentDirectory>
+				<CurrentDirectory condition="is">/home/svc_veeam</CurrentDirectory>
+				<CurrentDirectory condition="is">/opt/veeam/deployment</CurrentDirectory>
+				<CommandLine condition="is">lscpu</CommandLine>
+				<CommandLine condition="is">ip route</CommandLine>
+				<CommandLine condition="is">smartctl -i /dev/sda</CommandLine>
+				<CommandLine condition="is">lsblk -ldbn</CommandLine>
+				<CommandLine condition="is">ip -6 route</CommandLine>
+				<CommandLine condition="is">grep out of memory</CommandLine>
+				<CommandLine condition="is">inet inet -log /var/opt/omni/log/inet.log</CommandLine>
+				<CommandLine condition="is">udevadm info -q all -n /dev/sda</CommandLine>
+				<CommandLine condition="is">sh -c /usr/lib64/nagios/plugins/check_ro_mounts -x /var/named/chroot -x "/var/distro-trees/*" -x "/sys/fs/cgroup" -x  "/run/credentials" -x "/run/systemd/incoming"</CommandLine>
+				<CommandLine condition="is">sh -c /usr/lib64/nagios/plugins/check_dmesg.sh</CommandLine>
+				<CommandLine condition="is">/bin/bash /usr/lib64/nagios/plugins/check_dmesg.sh</CommandLine>
+				<CommandLine condition="is">sh -c /usr/lib64/nagios/plugins/systemctl-check.sh redis.service</CommandLine>
+				<CommandLine condition="is">/bin/bash /usr/lib64/nagios/plugins/systemctl-check.sh redis.service</CommandLine>
+				<CommandLine condition="is">/usr/lib64/nagios/plugins/check_procs -w 5 -c 10 -s Z</CommandLine>
+				<CommandLine condition="is">sh -c /usr/lib64/nagios/plugins/check_procs -w 5 -c 10 -s Z</CommandLine>
+				<CommandLine condition="is">/usr/bin/ps -eo s uid pid ppid vsz rss pcpu etime comm args</CommandLine>
+				<CommandLine condition="is">/usr/bin/systemctl status redis.service</CommandLine>
+				<CommandLine condition="is">/bin/sh /etc/cron.hourly/0anacron</CommandLine>
+				<CommandLine condition="is">sh -c df -P</CommandLine>
+				<CommandLine condition="is">netstat -tulpn</CommandLine>
+				<CommandLine condition="is">/usr/bin/which</CommandLine>
+				<CommandLine condition="contains">docker</CommandLine>
+				<CommandLine condition="contains">selinux_child</CommandLine>
+				<CommandLine condition="contains">password</CommandLine>
+				<CommandLine condition="contains">sssd</CommandLine>
+				<CommandLine condition="contains">netstat</CommandLine>
+				<CommandLine condition="contains">^tcp</CommandLine>
+				<CommandLine condition="contains">veeam</CommandLine>
+				<CommandLine condition="is">sh -c $dmesg</CommandLine>
+				<CommandLine condition="is">/opt/veeam/transport/veeamtransport-link --get-user</CommandLine>
+				<CommandLine condition="is">cat /proc/cmdline</CommandLine>
+				<CommandLine condition="is">/bin/sh -c  /root/bin/fixOsad.sh &amp;&gt;/dev/null</CommandLine>
+				<CommandLine condition="is">/bin/bash /root/bin/fixOsad.sh</CommandLine>
+				<CommandLine condition="is">sh -c monitor-get-edid --vbe-port 18 2&gt;/dev/null</CommandLine>
+				<CommandLine condition="is">sh -c monitor-get-edid-using-vbe --port 20 2&gt;/dev/null</CommandLine>
+				<CommandLine condition="is">sh -c get-edid 2&gt;/dev/null</CommandLine>
+				<CommandLine condition="is">sh -c rpm -qa</CommandLine>
+				<CommandLine condition="is">grep --quiet -e \(/dev/ttyS\|not a tty\)</CommandLine>
+				<CommandLine condition="is">/bin/bash /usr/sbin/service osad restart</CommandLine>
+				<CommandLine condition="is">cat /var/spool/anacron/cron.daily</CommandLine>
+				<CommandLine condition="is">/bin/bash -c run-parts /etc/cron.hourly</CommandLine>
+				<CommandLine condition="is">grep -Eqw start|stop|restart|try-restart|reload|force-reload|status|condrestart</CommandLine>
+				<CommandLine condition="is">grep ^udp</CommandLine>
+				<CommandLine condition="is">sh -c docker ps 2&gt;/dev/null</CommandLine>
+				<CommandLine condition="is">/bin/bash /bin/run-parts /etc/cron.hourly</CommandLine>
+				<CommandLine condition="is">pickup -l -t unix -u</CommandLine>
+				<CommandLine condition="is">sh -c which arcconf 2&gt;/dev/null</CommandLine>
+				<CommandLine condition="is">/bin/bash /etc/cron.hourly/ocsinventory-agent.cron</CommandLine>
+				<CommandLine condition="is">basename /etc/cron.hourly/ocsinventory-agent.cron</CommandLine>
+				<CommandLine condition="is">/usr/bin/perl -w /usr/lib64/nagios/plugins/check_ro_mounts -x /var/named/chroot -x /var/distro-trees/* -x /sys/fs/cgroup -x /run/credentials -x /run/systemd/incoming</CommandLine>
+				<CommandLine condition="begin with">sh -c /bin/ps -p</CommandLine>
+				<CommandLine condition="begin with">sh -c monitor-get-edid</CommandLine>
+				<CommandLine condition="begin with">sh -c rpm</CommandLine>
+				<CommandLine condition="begin with">logger -p cron.notice</CommandLine>
+				<CommandLine condition="begin with">sh -c /usr/lib64/nagios/plugins/check_ro_mounts</CommandLine>
+				<CommandLine condition="begin with">sh -c last -n 20</CommandLine>
+				<CommandLine condition="begin with">last -n 20</CommandLine>
+				<CommandLine condition="begin with">/sbin/ldconfig -p</CommandLine>
+				<CommandLine condition="begin with">sh -c /usr/lib64/nagios/plugins/check_disk</CommandLine>
+				<CommandLine condition="begin with">/usr/sbin/monitor-get-edid-using-vbe</CommandLine>
+				<CommandLine condition="begin with">inet inet -log</CommandLine>
+				<CommandLine condition="begin with">sh -c /usr/lib64/nagios/plugins/check_load</CommandLine>
+				<CommandLine condition="begin with">/usr/sbin/sshd -D</CommandLine>
+				<CommandLine condition="begin with">grep oom-killer</CommandLine>
+				<CommandLine condition="begin with">grep NETDEV WATCHDOG</CommandLine>
+				<CommandLine condition="begin with">grep e2fsck is recommended</CommandLine>
+				<CommandLine condition="begin with">grep No irq handler for vector</CommandLine>
+				<CommandLine condition="begin with">sh -c /usr/lib64/nagios/plugins/check_procs</CommandLine>
+				<CommandLine condition="begin with">sh -c netstat -tulpn</CommandLine>
+				<CommandLine condition="begin with">sh -c pacman</CommandLine>
+				<CommandLine condition="begin with">sh -c</CommandLine>
+                                <Image condition="image">+/usr/libexec/sssd/ldap_child</Image>
+				<Image condition="image">/usr/bin/ps</Image>
+				<Image condition="image">/usr/bin/umount</Image>
+				<Image condition="image">/usr/sbin/veeammount</Image>
+				<Image condition="image">/usr/sbin/lshw</Image>
+				<Image condition="image">/usr/bin/basename</Image>
+				<Image condition="image">/usr/sbin/rhnsd</Image>
+				<Image condition="image">/usr/sbin/xfs_db</Image>
+				<Image condition="image">/usr/sbin/monitor-get-edid-using-vbe</Image>
+				<Image condition="image">/usr/bin/head</Image>
+				<Image condition="image">/usr/bin/logger</Image>
+				<Image condition="image">/usr/bin/docker</Image>
+				<Image condition="image">/usr/bin/date</Image>
+				<Image condition="image">/usr/sbin/dmidecode</Image>
+				<Image condition="image">/usr/bin/dpkg</Image>
+				<Image condition="image">/usr/bin/rpm</Image>
+				<Image condition="image">/usr/bin/dmesg</Image>
                                 <Image condition="image">/usr/bin/tail</Image>
+				<Image condition="image">/usr/libexec/platform-python3.6</Image>
+				<Image condition="image">/usr/bin/hostname</Image>
+				<Image condition="image">+/usr/lib64/nagios/plugins/check_procs</Image>
+				<Image condition="image">+/usr/lib64/nagios/plugins/check_load</Image>
+				<Image condition="image">+/ossec/framework/python/bin/python3.9</Image>
+				<Image condition="image">/ossec/framework/python/bin/python3.9</Image>
+				<Image condition="image">+/usr/libexec/docker/cli-plugins/docker-compose</Image>
+				<Image condition="image">+/usr/libexec/docker/cli-plugins/docker-buildx</Image>
                                 <Image condition="image">/usr/bin/who</Image>
+				<Image condition="image">/usr/sbin/lspci</Image>
                                 <Image condition="image">/usr/libexec/docker/docker-init</Image>
+				<Image condition="image">usr/bin/docker-init</Image>
                                 <Image condition="image">/usr/bin/runc</Image>
-                                <Image condition="image">/usr/bin/sed</Image>
-                                <Image condition="image">/usr/bin/sort</Image>
+				<Image condition="image">/usr/bin/dpkg-query</Image>
+				<Image condition="image">/usr/bin/sort</Image>
+				<Image condition="image">/usr/bin/tty</Image>
+				<Image condition="image">/usr/bin/sed</Image>
+				<Image condition="image">/usr/bin/ipmitool</Image>
+				<Image condition="image">/usr/bin/cut</Image>
+				<Image condition="image">+/opt/omni/lbin/inet</Image>
+				<Image condition="image">/usr/bin/perl</Image>
                                 <Image condition="image">/usr/bin/df</Image>
+				<Image condition="image">/usr/bin/mount</Image>
                                 <Image condition="image">/usr/bin/who</Image>
+				<Image condition="image">/usr/bin/wc</Image>
+				<Image condition="image">+/usr/lib64/nagios/plugins/check_disk</Image>
+				<Image condition="image">docker-init --version</Image>
+				<Image condition="image">/usr/bin/uptime</Image>
                         </ProcessCreate>
                 </RuleGroup>
-
                 <!-- Event ID 3 == ProcessCreate. Log all newly created pro -->
                 <RuleGroup name="" groupRelation="or">
                         <NetworkConnect onmatch="exclude">
                                 <Image condition="image">/var/ossec/bin/wazuh-agentd</Image>
+				<Image condition="image">/var/ossec/bin/wazuh-modulesd</Image>
+				<Image condition="image">wazuh-maild</Image>
+				<Image condition="image">dockerd</Image>
+				<Image condition="image">/app/agent</Image>
+				<Image condition="image">/usr/bin/dockerd</Image>
+				<Image condition="image">/usr/sbin/chronyd</Image>
+				<Image condition="image">/usr/sbin/snmpd</Image>
+				<Image condition="image">chronyd</Image>
+				<Image condition="image">nrpe</Image>
+				<Image condition="image">snmpd</Image>
+				<Image condition="image">veeamtransport</Image>
+				<Image condition="image">veeamagent</Image>
+				<Image condition="image">veeamjobman</Image>
+				<Image condition="image">/usr/sbin/veeamagent</Image>
+				<Image condition="image">/usr/bin/veeamconfig</Image>
+				<Image condition="image">/opt/veeam/transport/veeamtransport</Image>
+				<Image condition="image">/usr/libexec/sssd/sssd_be</Image>
+				<Image condition="image">/opt/veeam/deployment/veeamdeploymentsvc</Image>
+				<Image condition="image">/usr/sbin/zabbix_agentd</Image>
+				<Image condition="image">+/opt/omni/lbin/inet</Image>
+				<Image condition="image">/usr/sbin/xinetd</Image>
+				<Image condition="image">/var/ossec/bin/wazuh-remoted</Image>
+				<Image condition="contains">ldap_child</Image>
+				<Image condition="contains">veeam</Image>
+				<Image condition="contains">krb5_child</Image>
                         </NetworkConnect>
                 </RuleGroup>
 
                   <!-- Event ID 5 == ProcessTerminated. Log all newly terminated processes -->
                 <RuleGroup name="" groupRelation="or">
-                        <ProcessTerminate onmatch="exclude">
-                                <Image condition="image">/usr/bin/head</Image>
-                                <Image condition="image">/usr/bin/tail</Image>
-                                <Image condition="image">/usr/bin/who</Image>
-                                <Image condition="image">/usr/bin/df</Image>
-                                <Image condition="image">/usr/bin/sleep</Image>
-                                <Image condition="not_equal">&lt;unknown process&gt;</Image>
-                                <Image condition="image">/usr/bin/runc</Image>
-                                <Image condition="image">/usr/bin/sed</Image>
-                                <Image condition="image">/usr/bin/sort</Image>
-                                <Image condition="image">/usr/libexec/docker/docker-init</Image>
-                                
-                        </ProcessTerminate >
+			<ProcessTerminate onmatch="include"/>
                 </RuleGroup>
 
                   <!-- Event ID 9 == RawAccessRead. Log all raw access read -->
                 <RuleGroup name="" groupRelation="or">
-                        <RawAccessRead onmatch="exclude"/>
+                        <RawAccessRead onmatch="include"/>
                 </RuleGroup>
 
                   <!-- Event ID 10 == ProcessAccess. Log all open process operations -->
@@ -62,18 +190,42 @@
                                 <Image condition="image">/var/ossec/bin/wazuh-agentd</Image>
                                 <Image condition="image">/usr/sbin/rsyslogd</Image>
                                 <Image condition="image">/usr/lib/systemd/systemd-logind</Image>
-                                <Image condition="image">/usr/lib/systemd/systemd-journald</Image>
+				<Image condition="image">/usr/lib/systemd/systemd-journald</Image>
+				<Image condition="image">+/usr/lib/systemd/systemd-journald</Image>
                                 <Image condition="image">/usr/lib/systemd/systemd</Image>
                                 <Image condition="image">/usr/bin/mandb</Image>
                                 <Image condition="image">/usr/bin/python3.9</Image>
                                 <Image condition="image">/usr/sbin/ldconfig</Image>
+				<Image condition="image">+/var/ossec/bin/wazuh-analysisd</Image>
+				<Image condition="image">+/var/ossec/bin/wazuh-remoted</Image>
+				<Image condition="image">+/var/ossec/bin/wazuh-modulesd</Image>
+				<Image condition="image">+/var/ossec/bin/wazuh-agentd</Image>
+				<Image condition="image">+/var/ossec/bin/wazuh-db</Image>
+				<Image condition="image">+/var/ossec/bin/wazuh-syscheckd</Image>
+				<Image condition="image">/usr/bin/postgres</Image>
+				<Image condition="image">/usr/bin/rsync</Image>
+				<Image condition="image">+/ossec/framework/python/bin/python3.9</Image>
+				<Image condition="image">+usr/libexec/sssd/sssd_be</Image>
+				<Image condition="image">+/usr/usr/sbin/chronyd</Image>
+				<Image condition="image">+/usr/libexec/sssd/ldap_child</Image>
+				<Image condition="image">+/opt/veeam/deployment/veeamdeploymentsvc</Image>
+				<Image condition="image">+/usr/lib/systemd/systemd-logind</Image>
+				<Image condition="image">+/usr/libexec/sssd/sssd_be</Image>
+				<Image condition="contains">veeam</Image>
+				<Image condition="contains">+/var/ossec/bin/wazuh-monitord</Image>
+				<Image condition="contains">wazuh</Image>
+				<TargetFilename condition="begin with">+/proc/</TargetFilename>	
+				<TargetFilename condition="begin with">+/var/lib/sss/</TargetFilename>
+				<TargetFilename condition="begin with">+/run/</TargetFilename>
+				<TargetFilename condition="begin with">+/_data/alerts/</TargetFilename>
+				<TargetFilename condition="begin with">+/ossec/</TargetFilename>
+				<TargetFilename condition="begin with">/home/svc_veeam/</TargetFilename>
                         </FileCreate>
                 </RuleGroup>
 
                   <!-- Event ID 23 == FileDelete. Log all files being deleted -->
                 <RuleGroup name="" groupRelation="or">
-                        <FileDelete onmatch="exclude"/>
+                        <FileDelete onmatch="include"/>
                 </RuleGroup>
         </EventFiltering>
 </Sysmon>
-
